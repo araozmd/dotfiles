@@ -1,3 +1,8 @@
-
+# Composer
+picom &
 # Wallpaper
 nitrogen --restore &
+# Keyboard Layout
+setxkbmap latam &
+# Java Fonts
+xsettingsd &

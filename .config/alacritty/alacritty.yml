@@ -29,8 +29,8 @@ colors:
     white:   '0xd1e5ed'
 
 font:
-  #bold:
-    #family: UbuntuMono Nerd Font
+  bold:
+    family: UbuntuMono Nerd Font
     # family: mononoki Nerd Font
     # family: agave Nerd Font
     # family: Caskaydia Cove Nerd Font
@@ -40,8 +40,8 @@ font:
     # family: Iosevka NF
     # family: Hack NF
     # family: SpaceMono NF
-  #italic:
-    #family: UbuntuMono Nerd Font
+  italic:
+    family: UbuntuMono Nerd Font
     # family: mononoki Nerd Font
     # family: agave Nerd Font
     # family: Caskaydia Cove Nerd Font
@@ -51,8 +51,8 @@ font:
     # family: Iosevka NF
     # family: Hack NF
     # family: SpaceMono NF
-  #normal:
-    #family: UbuntuMono Nerd Font
+  normal:
+    family: UbuntuMono Nerd Font
     # family: mononoki Nerd Font
     # family: agave Nerd Font
     # family: Caskaydia Cove Nerd Font
@@ -62,7 +62,7 @@ font:
     # family: Iosevka NF
     # family: Hack NF
     # family: SpaceMono NF
-    #style: Regular
+    style: Regular
   size: 10
 
 window:

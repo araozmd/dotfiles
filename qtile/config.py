@@ -26,10 +26,17 @@
 
 from typing import List  # noqa: F401
 
-from libqtile import bar, layout, widget
+from libqtile import bar, layout, widget, hook
 from libqtile.config import Click, Drag, Group, Key, Match, Screen
 from libqtile.lazy import lazy
 from libqtile.utils import guess_terminal
+import os
+import subprocess
+
+@hook.subscribe.startup_once
+def autostart():
+    home = os.path.expanduser('~/.config/qtile/autostart.sh')
+    subprocess.call([home])
 
 mod = "mod4"
 terminal = guess_terminal()
@@ -70,9 +77,12 @@ keys = [
 
     Key([mod, "control"], "r", lazy.restart(), desc="Restart Qtile"),
     Key([mod, "control"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
-    
+
     # Menu
     Key([mod], "m", lazy.spawn("rofi -show drun")),
+
+    # Browser
+    Key([mod], "b", lazy.spawn("google-chrome-stable")),
 
     # Window Nav
     Key([mod, "shift"], "m", lazy.spawn("rofi -show")),
@@ -87,26 +97,21 @@ keys = [
     Key([], "XF86AudioMute", lazy.spawn(
         "pactl set-sink-mute @DEFAULT_SINK@ toggle"
     )),
+
     # Brightness
     Key([], "XF86MonBrightnessUp", lazy.spawn("brightnessctl set +10%")),
     Key([], "XF86MonBrightnessDown", lazy.spawn("brightnessctl set 10%-")),
 ]
 
-groups = [Group(i) for i in "123456789"]
+groups = [Group(i) for i in ["   ", "   ", "   ", "   ",]]
 
-for i in groups:
+for i, group in enumerate(groups):
+    actual_key = str(i + 1)
     keys.extend([
-        # mod1 + letter of group = switch to group
-        Key([mod], i.name, lazy.group[i.name].toscreen(),
-            desc="Switch to group {}".format(i.name)),
-
-        # mod1 + shift + letter of group = switch to & move focused window to group
-        Key([mod, "shift"], i.name, lazy.window.togroup(i.name, switch_group=True),
-            desc="Switch to & move focused window to group {}".format(i.name)),
-        # Or, use below if you prefer not to switch to that group.
-        # # mod1 + shift + letter of group = move focused window to group
-        # Key([mod, "shift"], i.name, lazy.window.togroup(i.name),
-        #     desc="move focused window to group {}".format(i.name)),
+        # Switch to workspace N
+        Key([mod], actual_key, lazy.group[group.name].toscreen()),
+        # Send window to workspace N
+        Key([mod, "shift"], actual_key, lazy.window.togroup(group.name))
     ])
 
 layouts = [
@@ -126,33 +131,82 @@ layouts = [
 ]
 
 widget_defaults = dict(
-    font='sans',
-    fontsize=12,
-    padding=3,
+    font='UbuntuMono Nerd Font Bold',
+    fontsize=16,
+    padding=6,
 )
 extension_defaults = widget_defaults.copy()
 
 screens = [
     Screen(
-        bottom=bar.Bar(
+        top=bar.Bar(
             [
-                widget.CurrentLayout(),
-                widget.GroupBox(),
-                widget.Prompt(),
-                widget.WindowName(),
+                widget.GroupBox(
+                    foreground=["#f1ffff", "#f1ffff"],
+                    background=["#0f101a", "#0f101a"],
+                    font='UbuntuMono Nerd Font',
+                    fontsize=16,
+                    margin_y=3,
+                    margin_x=0,
+                    padding_y=8,
+                    padding_x=6,
+                    borderwidth=1,
+                    active=["#f1ffff", "#f1ffff"],
+                    inactive=["#f1ffff", "#f1ffff"],
+                    rounded=False,
+                    highlight_method='block',
+                    urgent_alert_method='block',
+                    urgent_border=['#F07178'],
+                    this_current_screen_border=["#f07178", "#f07178"],
+                    this_screen_border=['#353c4a', '#353c4a'],
+                    other_current_screen_border=['#0f101a', '#0f101a'],
+                    other_screen_border=['#0f101a', '#0f101a'],
+                    disable_drag=True
+                ),
+                widget.WindowName(
+                    foreground=["#f07178", "#f07178"],
+                    background=['#0f101a', '#0f101a'],
+                    fontsize=16,
+                    font='UbuntuMono Nerd Font Bold',
+                ),
                 widget.Chord(
                     chords_colors={
                         'launch': ("#ff0000", "#ffffff"),
                     },
                     name_transform=lambda name: name.upper(),
                 ),
-                widget.TextBox("default config", name="default"),
-                widget.TextBox("Press &lt;M-r&gt; to spawn", foreground="#d75f5f"),
                 widget.Systray(),
-                widget.Clock(format='%Y-%m-%d %a %I:%M %p'),
-                widget.QuickExit(),
+                widget.Sep(
+                    linewidth=0,
+                    padding=5,
+                ),
+                widget.CurrentLayoutIcon(
+                    scale=0.65,
+                    foreground=["#0f101a", "#0f101a"],
+                    background=["#f07178", "#f07178"]
+                ),
+                widget.CurrentLayout(
+                    foreground=["#0f101a", "#0f101a"],
+                    background=["#f07178", "#f07178"]
+                ),
+                widget.Sep(
+                    linewidth=0,
+                    padding=5,
+                    background=["#a141d3", "#a141d3"]
+                ),
+                widget.TextBox(
+                    background=["#a141d3", "#a141d3"],
+                    foreground=["#0f101a", "#0f101a"],
+                    text=' '
+                ),
+                widget.Clock(
+                    background=["#a141d3", "#a141d3"],
+                    foreground=["#0f101a", "#0f101a"],
+                    format='%d/%m/%Y - %H:%M '
+                ),
             ],
-            24,
+            26,
+            opacity=0.92,
         ),
     ),
 ]

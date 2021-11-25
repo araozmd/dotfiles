@@ -6,3 +6,5 @@ nitrogen --restore &
 setxkbmap latam &
 # Java Fonts
 xsettingsd &
+# USB support
+udiskie -t &

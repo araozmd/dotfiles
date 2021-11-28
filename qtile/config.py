@@ -84,6 +84,9 @@ keys = [
     # Browser
     Key([mod], "b", lazy.spawn("google-chrome-stable")),
 
+    # File explorer
+    Key([mod], "e", lazy.spawn("thunar")),
+
     # Window Nav
     Key([mod, "shift"], "m", lazy.spawn("rofi -show")),
 
@@ -103,7 +106,7 @@ keys = [
     Key([], "XF86MonBrightnessDown", lazy.spawn("brightnessctl set 10%-")),
 ]
 
-groups = [Group(i) for i in ["   ", "   ", "   ", "   ",]]
+groups = [Group(i) for i in ["   ", "   ", "   ", "   ", "   " ,"   "]]
 
 for i, group in enumerate(groups):
     actual_key = str(i + 1)
@@ -122,12 +125,12 @@ layout_conf = {
 
 layouts = [
     # layout.Columns(border_focus_stack=['#d75f5f', '#8f3d3d'], border_width=4),
+    layout.MonadTall(**layout_conf),
     layout.Max(),
     # Try more layouts by unleashing below layouts.
     # layout.Stack(num_stacks=2),
     # layout.Bsp(),
     # layout.Matrix(),
-    layout.MonadTall(**layout_conf),
     layout.MonadWide(**layout_conf),
     # layout.RatioTile(),
     # layout.Tile(),
@@ -175,16 +178,49 @@ screens = [
                     fontsize=16,
                     font='UbuntuMono Nerd Font Bold',
                 ),
-                widget.Chord(
-                    chords_colors={
-                        'launch': ("#ff0000", "#ffffff"),
-                    },
-                    name_transform=lambda name: name.upper(),
+                widget.TextBox(
+                    background=["#000000", "#000000"],
+                    foreground=['#ffd47e', '#ffd47e'],
+                    text="",
+                    fontsize=37,
+                    padding=-3
                 ),
-                widget.Systray(),
-                widget.Sep(
-                    linewidth=0,
-                    padding=5,
+                widget.TextBox(
+                    background=['#ffd47e', '#ffd47e'],
+                    foreground=["#0f101a", "#0f101a"],
+                    text=" "
+                ),
+                widget.CheckUpdates(
+                    background=['#ffd47e', '#ffd47e'],
+                    colour_have_updates=["#0f101a", "#0f101a"],
+                    colour_no_updates=["#0f101a", "#0f101a"],
+                    no_update_string='0',
+                    display_format='{updates}',
+                    update_interval=1800,
+                    custom_command='checkupdates',
+                ),
+                widget.TextBox(
+                    background=['#ffd47e', '#ffd47e'],
+                    foreground=['#fb9f7f', '#fb9f7f'],
+                    text="",
+                    fontsize=37,
+                    padding=-3
+                ),
+                widget.TextBox(
+                    background=['#fb9f7f', '#fb9f7f'],
+                    foreground=["#ffffff", "#ffffff"],
+                    text=" "
+                ),
+                widget.Net(
+                    background=["#fb9f7f", "#fb9f7f"],
+                    interface="wlp5s0"
+                ),
+                widget.TextBox(
+                    background=["#fb9f7f", "#fb9f7f"],
+                    foreground=["#f07178", "#f07178"],
+                    text="",
+                    fontsize=37,
+                    padding=-3
                 ),
                 widget.CurrentLayoutIcon(
                     scale=0.65,
@@ -194,6 +230,13 @@ screens = [
                 widget.CurrentLayout(
                     foreground=["#0f101a", "#0f101a"],
                     background=["#f07178", "#f07178"]
+                ),
+                widget.TextBox(
+                    background=["#f07178", "#f07178"],
+                    foreground=["#a141d3", "#a141d3"],
+                    text="",
+                    fontsize=37,
+                    padding=-3
                 ),
                 widget.Sep(
                     linewidth=0,
@@ -210,11 +253,19 @@ screens = [
                     foreground=["#0f101a", "#0f101a"],
                     format='%d/%m/%Y - %H:%M '
                 ),
+                widget.TextBox(
+                    background=["#a141d3", "#a141d3"],
+                    foreground=["#000000", "#000000"],
+                    text="",
+                    fontsize=37,
+                    padding=-3
+                ),
+                widget.Systray()
             ],
-            26,
-            opacity=0.92,
+            28,
+            opacity=0.95,
         ),
-    ),
+    )
 ]
 
 # Drag floating layouts.

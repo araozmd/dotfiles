@@ -90,6 +90,9 @@ keys = [
     # Window Nav
     Key([mod, "shift"], "m", lazy.spawn("rofi -show")),
 
+    # Screen shot
+    Key([mod], "s", lazy.spawn("flameshot gui")),
+
     # Volume
     Key([], "XF86AudioLowerVolume", lazy.spawn(
         "pactl set-sink-volume @DEFAULT_SINK@ -5%"

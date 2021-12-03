@@ -42,6 +42,10 @@ mod = "mod4"
 terminal = guess_terminal()
 
 keys = [
+    # Switch focus of monitors
+    Key([mod], "period", lazy.next_screen()),
+    Key([mod], "comma", lazy.prev_screen()),
+
     # Switch between windows
     Key([mod], "h", lazy.layout.left(), desc="Move focus to left"),
     Key([mod], "l", lazy.layout.right(), desc="Move focus to right"),
@@ -89,6 +93,16 @@ keys = [
 
     # Window Nav
     Key([mod, "shift"], "m", lazy.spawn("rofi -show")),
+
+    # Lock the screen
+    Key([mod], "o", lazy.spawn("light-locker-command -l")),
+
+    # Screenshot
+    Key([mod, "shift"], "s", lazy.spawn("flameshot gui")),
+
+    # Redshift for temperature of monitor
+    Key([mod], "r", lazy.spawn("redshift -O 3200")),
+    Key([mod, "shift"], "r", lazy.spawn("redshift -x")),
 
     # Volume
     Key([], "XF86AudioLowerVolume", lazy.spawn(
@@ -261,6 +275,80 @@ screens = [
                     padding=-3
                 ),
                 widget.Systray()
+            ],
+            30,
+            opacity=0.95,
+        ),
+    ),
+    Screen(
+        top=bar.Bar(
+            [
+                widget.GroupBox(
+                    foreground=["#f1ffff", "#f1ffff"],
+                    background=["#0f101a", "#0f101a"],
+                    font='UbuntuMono Nerd Font',
+                    fontsize=16,
+                    margin_y=3,
+                    margin_x=0,
+                    padding_y=8,
+                    padding_x=6,
+                    borderwidth=1,
+                    active=["#f1ffff", "#f1ffff"],
+                    inactive=["#f1ffff", "#f1ffff"],
+                    rounded=False,
+                    highlight_method='block',
+                    urgent_alert_method='block',
+                    urgent_border=['#F07178'],
+                    this_current_screen_border=["#f07178", "#f07178"],
+                    this_screen_border=['#353c4a', '#353c4a'],
+                    other_current_screen_border=['#0f101a', '#0f101a'],
+                    other_screen_border=['#0f101a', '#0f101a'],
+                    disable_drag=True
+                ),
+                widget.WindowName(
+                    foreground=["#f07178", "#f07178"],
+                    background=['#0f101a', '#0f101a'],
+                    fontsize=16,
+                    font='UbuntuMono Nerd Font Bold',
+                ),
+                widget.TextBox(
+                    background=["#000000", "#000000"],
+                    foreground=["#f07178", "#f07178"],
+                    text="",
+                    fontsize=37,
+                    padding=-3
+                ),
+                widget.CurrentLayoutIcon(
+                    scale=0.65,
+                    foreground=["#0f101a", "#0f101a"],
+                    background=["#f07178", "#f07178"]
+                ),
+                widget.CurrentLayout(
+                    foreground=["#0f101a", "#0f101a"],
+                    background=["#f07178", "#f07178"]
+                ),
+                widget.TextBox(
+                    background=["#f07178", "#f07178"],
+                    foreground=["#a141d3", "#a141d3"],
+                    text="",
+                    fontsize=37,
+                    padding=-3
+                ),
+                widget.Sep(
+                    linewidth=0,
+                    padding=5,
+                    background=["#a141d3", "#a141d3"]
+                ),
+                widget.TextBox(
+                    background=["#a141d3", "#a141d3"],
+                    foreground=["#0f101a", "#0f101a"],
+                    text=' '
+                ),
+                widget.Clock(
+                    background=["#a141d3", "#a141d3"],
+                    foreground=["#0f101a", "#0f101a"],
+                    format='%d/%m/%Y - %H:%M '
+                )
             ],
             28,
             opacity=0.95,

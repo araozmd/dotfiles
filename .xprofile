@@ -1,3 +1,6 @@
+PATH=$PATH:$JAVA_HOME/bin
+PATH=$PATH:/home/araozmd/.local/share/gem/ruby/3.0.0/bin
+PATH=$PATH:/opt/apache-maven-3.8.4/bin
 # Composer
 picom &
 # Wallpaper
@@ -8,3 +11,8 @@ setxkbmap latam &
 xsettingsd &
 # USB support
 udiskie -t &
+# Network
+nm-applet &
+# Lock Screen
+light-locker &
+xrandr --output DP-2 --primary --mode 2560x1440 --rate 143.97 --pos 0x0 --rotate normal --output DP-3 --off --output HDMI-1 --off --output HDMI-0 --mode 1920x1080 --pos 2560x76 --rotate normal --output DP-0 --off --output DP-1 --off &

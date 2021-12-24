@@ -15,4 +15,7 @@ udiskie -t &
 nm-applet &
 # Lock Screen
 light-locker &
-xrandr --output DP-2 --primary --mode 2560x1440 --rate 143.97 --pos 0x0 --rotate normal --output DP-3 --off --output HDMI-1 --off --output HDMI-0 --mode 1920x1080 --pos 2560x76 --rotate normal --output DP-0 --off --output DP-1 --off &
+# SSH Agent
+eval $(ssh-agent) &
+nvidia-settings -a InitialPixmapPlacement=2 &
+xrandr --output DP-2 --primary --mode 2560x1440 --rate 143.97 --pos 0x0 --rotate normal --output DP-3 --off --output HDMI-1 --off --output HDMI-0 --mode 1920x1080 --rate 60 --pos 2560x76 --rotate normal --output DP-0 --off --output DP-1 --off &

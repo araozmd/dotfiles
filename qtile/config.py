@@ -189,8 +189,6 @@ screens = [
                 widget.WindowName(
                     foreground=["#f07178", "#f07178"],
                     background=['#0f101a', '#0f101a'],
-                    fontsize=16,
-                    font='UbuntuMono Nerd Font Bold',
                 ),
                 widget.TextBox(
                     background=["#000000", "#000000"],
@@ -279,6 +277,116 @@ screens = [
             30,
             opacity=0.95,
         ),
+        bottom=bar.Bar(
+            [
+                widget.DF(
+                    visible_on_warn=False,
+                    background=['#e9c46a', '#e9c46a'],
+                    foreground=['#000000', '#000000']
+                ),
+                widget.HDDGraph(
+                    background=['#e9c46a', '#e9c46a'],
+                    foreground=['#000000', '#000000']
+                ),
+               widget.TextBox(
+                    text="",
+                    fontsize=56,
+                    padding=-3,
+                    background=['#2a9d8f', '#2a9d8f'],
+                    foreground=['#e9c46a', '#e9c46a']
+                ),
+                widget.DF(
+                    partition="/home",
+                    visible_on_warn=False,
+                    background=['#2a9d8f', '#2a9d8f'],
+                    foreground=['#ffffff', '#ffffff']
+                ),
+                widget.HDDGraph(
+                    path="/home",
+                    fill_color="ffffff",
+                    border_color="ffffff",
+                    graph_color="ffffff",
+                    background=['#2a9d8f', '#2a9d8f'],
+                    foreground=['#ffffff', '#ffffff']
+                ),
+               widget.TextBox(
+                    text="",
+                    fontsize=56,
+                    padding=-3,
+                    background=["#000000", "#000000"],
+                    foreground=['#2a9d8f', '#2a9d8f']
+                ),
+                widget.Spacer(),
+                widget.TextBox(
+                    text="",
+                    fontsize=45,
+                    padding=-4,
+                    foreground=['#264653', '#264653']
+                ),
+                widget.TextBox(
+                    text=" ",
+                    background=['#264653', '#264653'],
+                    foreground=['#ffffff', '#ffffff']
+                ),
+                widget.NvidiaSensors(
+                    gpu_bus_id='',
+                    format='{temp}°C,  {fan_speed}  {perf}',
+                    update_interval=10,
+                    background=['#264653', '#264653'],
+                    foreground=['#ffffff', '#ffffff']
+                ),
+                widget.TextBox(
+                    text="",
+                    fontsize=45,
+                    padding=-4,
+                    foreground=['#2a9d8f', '#2a9d8f'],
+                    background=['#264653', '#264653']
+                ),
+                widget.TextBox(
+                    text="",
+                    background=['#2a9d8f', '#2a9d8f'],
+                    foreground=['#ffffff', '#ffffff']
+                ),
+                widget.Memory(
+                    measure_mem="G",
+                    measure_swap="G",
+                    update_interval=10,
+                    background=['#2a9d8f', '#2a9d8f'],
+                    foreground=['#ffffff', '#ffffff']
+                ),
+                widget.Sep(
+                    linewidth=0,
+                    padding=5,
+                    background=['#2a9d8f', '#2a9d8f']
+                ),
+                widget.TextBox(
+                    text="",
+                    fontsize=45,
+                    padding=-4,
+                    background=['#2a9d8f', '#2a9d8f'],
+                    foreground=['#e9c46a', '#e9c46a']
+                ),
+                widget.TextBox(
+                    text="﬙ ",
+                    background=['#e9c46a', '#e9c46a'],
+                    foreground=['#000000', '#000000']
+                ),
+                widget.CPU(
+                    format='{freq_current}GHz {load_percent}%',
+                    update_interval=10,
+                    background=['#e9c46a', '#e9c46a'],
+                    foreground=['#000000', '#000000']
+                ),
+                widget.ThermalSensor(
+                    tag_sensor="Tctl",
+                    update_interval=10,
+                    background=['#e9c46a', '#e9c46a'],
+                    foreground=['#000000', '#000000']
+                )
+            ],
+            30,
+            opacity=0.9
+        )
     ),
     Screen(
         top=bar.Bar(

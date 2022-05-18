@@ -19,6 +19,8 @@ Plug 'scrooloose/nerdtree'
  Plug 'wincent/command-t', {
     \   'do': 'cd ruby/command-t/ext/command-t && ruby extconf.rb && make'
     \ }
+" Find inside files
+Plug 'mileszs/ack.vim'
 
 " Autocomplete
 Plug 'neoclide/coc.nvim', {'branch': 'release'}

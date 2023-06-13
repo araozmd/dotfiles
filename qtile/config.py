@@ -152,7 +152,7 @@ layouts = [
     # layout.RatioTile(),
     # layout.Tile(),
     # layout.TreeTab(),
-    # layout.VerticalTile(),
+    layout.VerticalTile(),
     # layout.Zoomy(),
 ]
 
@@ -163,42 +163,52 @@ widget_defaults = dict(
 )
 extension_defaults = widget_defaults.copy()
 
+def screenGroupStyle():
+    return {
+        'foreground':["#f1ffff", "#f1ffff"],
+        'background':["#0f101a", "#0f101a"],
+        'font':'UbuntuMono Nerd Font',
+        'fontsize':22,
+        'margin_y':3,
+        'margin_x':0,
+        'padding_y':8,
+        'padding_x':6,
+        'borderwidth':1,
+        'active':["#f1ffff", "#f1ffff"],
+        'inactive':["#f1ffff", "#f1ffff"],
+        'rounded':False,
+        'highlight_method':'block',
+        'urgent_alert_method':'block',
+        'urgent_border':['#F07178'],
+        'this_current_screen_border':["#f07178", "#f07178"],
+        'this_screen_border':['#353c4a', '#353c4a'],
+        'other_current_screen_border':['#0f101a', '#0f101a'],
+        'other_screen_border':['#0f101a', '#0f101a'],
+        'disable_drag':True
+    }
+
+def arrowLeftStyle():
+    return {
+        'text':'',
+        'fontsize':71,
+        'padding':-14
+    }
+
 screens = [
     Screen(
         top=bar.Bar(
             [
                 widget.GroupBox(
-                    foreground=["#f1ffff", "#f1ffff"],
-                    background=["#0f101a", "#0f101a"],
-                    font='UbuntuMono Nerd Font',
-                    fontsize=16,
-                    margin_y=3,
-                    margin_x=0,
-                    padding_y=8,
-                    padding_x=6,
-                    borderwidth=1,
-                    active=["#f1ffff", "#f1ffff"],
-                    inactive=["#f1ffff", "#f1ffff"],
-                    rounded=False,
-                    highlight_method='block',
-                    urgent_alert_method='block',
-                    urgent_border=['#F07178'],
-                    this_current_screen_border=["#f07178", "#f07178"],
-                    this_screen_border=['#353c4a', '#353c4a'],
-                    other_current_screen_border=['#0f101a', '#0f101a'],
-                    other_screen_border=['#0f101a', '#0f101a'],
-                    disable_drag=True
+                    **screenGroupStyle(),
                 ),
                 widget.WindowName(
                     foreground=["#f07178", "#f07178"],
                     background=['#0f101a', '#0f101a'],
                 ),
                 widget.TextBox(
+                    **arrowLeftStyle(),
                     background=["#000000", "#000000"],
-                    foreground=['#ffd47e', '#ffd47e'],
-                    text="",
-                    fontsize=37,
-                    padding=-3
+                    foreground=['#ffd47e', '#ffd47e']
                 ),
                 widget.TextBox(
                     background=['#ffd47e', '#ffd47e'],
@@ -215,11 +225,9 @@ screens = [
                     custom_command='checkupdates',
                 ),
                 widget.TextBox(
+                    **arrowLeftStyle(),
                     background=['#ffd47e', '#ffd47e'],
-                    foreground=['#fb9f7f', '#fb9f7f'],
-                    text="",
-                    fontsize=37,
-                    padding=-3
+                    foreground=['#fb9f7f', '#fb9f7f']
                 ),
                 widget.TextBox(
                     background=['#fb9f7f', '#fb9f7f'],
@@ -231,11 +239,9 @@ screens = [
                     interface="wlp5s0"
                 ),
                 widget.TextBox(
+                    **arrowLeftStyle(),
                     background=["#fb9f7f", "#fb9f7f"],
                     foreground=["#f07178", "#f07178"],
-                    text="",
-                    fontsize=37,
-                    padding=-3
                 ),
                 widget.CurrentLayoutIcon(
                     scale=0.65,
@@ -248,10 +254,8 @@ screens = [
                 ),
                 widget.TextBox(
                     background=["#f07178", "#f07178"],
+                    **arrowLeftStyle(),
                     foreground=["#a141d3", "#a141d3"],
-                    text="",
-                    fontsize=37,
-                    padding=-3
                 ),
                 widget.Sep(
                     linewidth=0,
@@ -269,11 +273,9 @@ screens = [
                     format='%d/%m/%Y - %H:%M '
                 ),
                 widget.TextBox(
+                    **arrowLeftStyle(),
                     background=["#a141d3", "#a141d3"],
                     foreground=["#000000", "#000000"],
-                    text="",
-                    fontsize=37,
-                    padding=-3
                 ),
                 widget.Systray()
             ],
@@ -293,37 +295,13 @@ screens = [
                 ),
                widget.TextBox(
                     text="",
-                    fontsize=56,
-                    padding=-3,
-                    background=['#2a9d8f', '#2a9d8f'],
+                    fontsize=40,
+                    padding=-1,
                     foreground=['#e9c46a', '#e9c46a']
-                ),
-                widget.DF(
-                    partition="/home",
-                    visible_on_warn=False,
-                    background=['#2a9d8f', '#2a9d8f'],
-                    foreground=['#ffffff', '#ffffff']
-                ),
-                widget.HDDGraph(
-                    path="/home",
-                    fill_color="ffffff",
-                    border_color="ffffff",
-                    graph_color="ffffff",
-                    background=['#2a9d8f', '#2a9d8f'],
-                    foreground=['#ffffff', '#ffffff']
-                ),
-               widget.TextBox(
-                    text="",
-                    fontsize=56,
-                    padding=-3,
-                    background=["#000000", "#000000"],
-                    foreground=['#2a9d8f', '#2a9d8f']
                 ),
                 widget.Spacer(),
                 widget.TextBox(
-                    text="",
-                    fontsize=45,
-                    padding=-4,
+                    **arrowLeftStyle(),
                     foreground=['#264653', '#264653']
                 ),
                 widget.TextBox(
@@ -339,9 +317,7 @@ screens = [
                     foreground=['#ffffff', '#ffffff']
                 ),
                 widget.TextBox(
-                    text="",
-                    fontsize=45,
-                    padding=-4,
+                    **arrowLeftStyle(),
                     foreground=['#2a9d8f', '#2a9d8f'],
                     background=['#264653', '#264653']
                 ),
@@ -363,9 +339,7 @@ screens = [
                     background=['#2a9d8f', '#2a9d8f']
                 ),
                 widget.TextBox(
-                    text="",
-                    fontsize=45,
-                    padding=-4,
+                    **arrowLeftStyle(),
                     background=['#2a9d8f', '#2a9d8f'],
                     foreground=['#e9c46a', '#e9c46a']
                 ),
@@ -395,26 +369,7 @@ screens = [
         top=bar.Bar(
             [
                 widget.GroupBox(
-                    foreground=["#f1ffff", "#f1ffff"],
-                    background=["#0f101a", "#0f101a"],
-                    font='UbuntuMono Nerd Font',
-                    fontsize=16,
-                    margin_y=3,
-                    margin_x=0,
-                    padding_y=8,
-                    padding_x=6,
-                    borderwidth=1,
-                    active=["#f1ffff", "#f1ffff"],
-                    inactive=["#f1ffff", "#f1ffff"],
-                    rounded=False,
-                    highlight_method='block',
-                    urgent_alert_method='block',
-                    urgent_border=['#F07178'],
-                    this_current_screen_border=["#f07178", "#f07178"],
-                    this_screen_border=['#353c4a', '#353c4a'],
-                    other_current_screen_border=['#0f101a', '#0f101a'],
-                    other_screen_border=['#0f101a', '#0f101a'],
-                    disable_drag=True
+                    **screenGroupStyle()
                 ),
                 widget.WindowName(
                     foreground=["#f07178", "#f07178"],
@@ -423,11 +378,9 @@ screens = [
                     font='UbuntuMono Nerd Font Bold',
                 ),
                 widget.TextBox(
+                    **arrowLeftStyle(),
                     background=["#000000", "#000000"],
                     foreground=["#f07178", "#f07178"],
-                    text="",
-                    fontsize=37,
-                    padding=-3
                 ),
                 widget.CurrentLayoutIcon(
                     scale=0.65,
@@ -439,11 +392,9 @@ screens = [
                     background=["#f07178", "#f07178"]
                 ),
                 widget.TextBox(
+                    **arrowLeftStyle(),
                     background=["#f07178", "#f07178"],
                     foreground=["#a141d3", "#a141d3"],
-                    text="",
-                    fontsize=37,
-                    padding=-3
                 ),
                 widget.Sep(
                     linewidth=0,

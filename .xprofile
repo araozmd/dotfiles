@@ -1,4 +1,4 @@
-PATH=$PATH:/home/araozmd/.local/share/gem/ruby/3.0.0/bin
+# PATH=$PATH:/home/araozmd/.local/share/gem/ruby/3.0.0/bin
 # Composer
 picom &
 # Wallpaper
@@ -16,4 +16,5 @@ light-locker &
 # SSH Agent
 eval $(ssh-agent) &
 nvidia-settings -a InitialPixmapPlacement=2 &
-xrandr --output DP-2 --primary --mode 2560x1440 --rate 143.97 --pos 0x0 --rotate normal --output DP-3 --off --output HDMI-1 --off --output HDMI-0 --mode 1920x1080 --rate 60 --pos 2560x76 --rotate normal --output DP-0 --off --output DP-1 --off &
+xrdb ~/.Xresources
+xinput --set-prop 28 'libinput Accel Speed' -0.6 &

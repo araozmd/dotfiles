@@ -16,10 +16,10 @@ Plug 'easymotion/vim-easymotion'
 " Folder explorer
 Plug 'scrooloose/nerdtree'
 " Find files
-" Plug 'samoshkin/vim-find-files'
- Plug 'wincent/command-t', {
-    \   'do': 'cd ruby/command-t/ext/command-t && ruby extconf.rb && make'
-    \ }
+Plug 'wincent/command-t', {
+   \   'do': 'cd lua/wincent/commandt/lib && make'
+   \ }
+
 " Find inside files
 Plug 'mileszs/ack.vim'
 

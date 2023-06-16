@@ -28,7 +28,8 @@ colors:
 
 font:
   bold:
-    family: UbuntuMono Nerd Font
+    family:  UbuntuMono Nerd Font Mono
+    # family: MesloLGS NF
     # family: mononoki Nerd Font
     # family: agave Nerd Font
     # family: Caskaydia Cove Nerd Font
@@ -38,8 +39,10 @@ font:
     # family: Iosevka NF
     # family: Hack NF
     # family: SpaceMono NF
+    style: Bold
   italic:
-    family: UbuntuMono Nerd Font
+    family: UbuntuMono Nerd Font Mono
+    # family: MesloLGS NF
     # family: mononoki Nerd Font
     # family: agave Nerd Font
     # family: Caskaydia Cove Nerd Font
@@ -49,8 +52,10 @@ font:
     # family: Iosevka NF
     # family: Hack NF
     # family: SpaceMono NF
+    style: Italic
   normal:
-    family: UbuntuMono Nerd Font
+    family: UbuntuMono Nerd Font Mono
+    # family: MesloLGS NF
     # family: mononoki Nerd Font
     # family: agave Nerd Font
     # family: Caskaydia Cove Nerd Font
@@ -61,9 +66,11 @@ font:
     # family: Hack NF
     # family: SpaceMono NF
     style: Regular
-  size: 12
+  size: 13
 
 window:
   opacity: 0.90
   padding:
-    x: 2
+    x: 2 
+shell:
+  program: /bin/zsh

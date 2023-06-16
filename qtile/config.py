@@ -123,7 +123,8 @@ keys = [
     Key([mod, "control"], "s", lazy.spawn("systemctl suspend"))
 ]
 
-groups = [Group(i) for i in ["   ", "   ", "   ", "   ", "   " ,"   ", "   "]]
+# internet, chats, mail, code, terminal, database, everything else
+groups = [Group(i) for i in ["   ", " 󰈎  ", "   ", "   ", "   " ,"   ", "   "]]
 
 for i, group in enumerate(groups):
     actual_key = str(i + 1)
@@ -135,9 +136,9 @@ for i, group in enumerate(groups):
     ])
 
 layout_conf = {
-    'border_focus': '#F07178',
+    'border_focus': '#26FD00',
     'border_width': 1,
-    'margin': 4
+    'margin': 5
 }
 
 layouts = [
@@ -152,7 +153,7 @@ layouts = [
     # layout.RatioTile(),
     # layout.Tile(),
     # layout.TreeTab(),
-    layout.VerticalTile(),
+    layout.VerticalTile(**layout_conf),
     # layout.Zoomy(),
 ]
 
@@ -168,7 +169,7 @@ def screenGroupStyle():
         'foreground':["#f1ffff", "#f1ffff"],
         'background':["#0f101a", "#0f101a"],
         'font':'UbuntuMono Nerd Font',
-        'fontsize':22,
+        'fontsize':20,
         'margin_y':3,
         'margin_x':0,
         'padding_y':8,
@@ -191,7 +192,13 @@ def arrowLeftStyle():
     return {
         'text':'',
         'fontsize':71,
-        'padding':-14
+        'padding':-10
+    }
+
+def upperBarConfig():
+    return {
+        'opacity': 0.9,
+        'margin': [ 10, 5, 5, 5 ]
     }
 
 screens = [
@@ -205,6 +212,7 @@ screens = [
                     foreground=["#f07178", "#f07178"],
                     background=['#0f101a', '#0f101a'],
                 ),
+                widget.Systray(),
                 widget.TextBox(
                     **arrowLeftStyle(),
                     background=["#000000", "#000000"],
@@ -221,8 +229,8 @@ screens = [
                     colour_no_updates=["#0f101a", "#0f101a"],
                     no_update_string='0',
                     display_format='{updates}',
-                    update_interval=1800,
                     custom_command='checkupdates',
+                    update_interval=1800
                 ),
                 widget.TextBox(
                     **arrowLeftStyle(),
@@ -265,39 +273,39 @@ screens = [
                 widget.TextBox(
                     background=["#a141d3", "#a141d3"],
                     foreground=["#0f101a", "#0f101a"],
-                    text=' '
+                    text=' '
                 ),
                 widget.Clock(
                     background=["#a141d3", "#a141d3"],
                     foreground=["#0f101a", "#0f101a"],
                     format='%d/%m/%Y - %H:%M '
-                ),
-                widget.TextBox(
-                    **arrowLeftStyle(),
-                    background=["#a141d3", "#a141d3"],
-                    foreground=["#000000", "#000000"],
-                ),
-                widget.Systray()
-            ],
+                )            ],
             30,
-            opacity=0.95,
+            **upperBarConfig()
         ),
         bottom=bar.Bar(
             [
                 widget.DF(
                     visible_on_warn=False,
                     background=['#e9c46a', '#e9c46a'],
-                    foreground=['#000000', '#000000']
+                    foreground=['#000000', '#000000'],
+                    format = '{p} ({uf} {m}|{r:.0f}%)'
                 ),
                 widget.HDDGraph(
                     background=['#e9c46a', '#e9c46a'],
                     foreground=['#000000', '#000000']
                 ),
-               widget.TextBox(
-                    text="",
-                    fontsize=40,
-                    padding=-1,
-                    foreground=['#e9c46a', '#e9c46a']
+                widget.DF(
+                    visible_on_warn=False,
+                    partition = '/home',
+                    background=['#2a9d8f', '#2a9d8f'],
+                    foreground=['#ffffff', '#ffffff'],
+                    format = '{p} ({uf} {m}|{r:.0f}%)'
+                ),
+                widget.HDDGraph(
+                    path = '/home',
+                    background=['#2a9d8f', '#2a9d8f'],
+                    foreground=['#ffffff', '#ffffff']
                 ),
                 widget.Spacer(),
                 widget.TextBox(
@@ -322,7 +330,7 @@ screens = [
                     background=['#264653', '#264653']
                 ),
                 widget.TextBox(
-                    text="",
+                    text="",
                     background=['#2a9d8f', '#2a9d8f'],
                     foreground=['#ffffff', '#ffffff']
                 ),
@@ -344,7 +352,7 @@ screens = [
                     foreground=['#e9c46a', '#e9c46a']
                 ),
                 widget.TextBox(
-                    text="﬙ ",
+                    text=" ",
                     background=['#e9c46a', '#e9c46a'],
                     foreground=['#000000', '#000000']
                 ),
@@ -404,7 +412,7 @@ screens = [
                 widget.TextBox(
                     background=["#a141d3", "#a141d3"],
                     foreground=["#0f101a", "#0f101a"],
-                    text=' '
+                    text=' '
                 ),
                 widget.Clock(
                     background=["#a141d3", "#a141d3"],
@@ -412,8 +420,8 @@ screens = [
                     format='%d/%m/%Y - %H:%M '
                 )
             ],
-            28,
-            opacity=0.95,
+            30,
+            **upperBarConfig()
         ),
     )
 ]

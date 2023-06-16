@@ -2,7 +2,8 @@ call plug#begin('~/.vim/plugged')
 
 " Themes
 Plug 'morhetz/gruvbox'
-Plug 'shinchu/lightline-gruvbox.vim'
+"Plug 'shinchu/lightline-gruvbox.vim'
+Plug 'dracula/vim'
 
 " Typing
 Plug 'jiangmiao/auto-pairs'
@@ -24,8 +25,6 @@ Plug 'mileszs/ack.vim'
 
 " Autocomplete
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-" Autocomplete for Java
-" Plug 'artur-shaik/vim-javacomplete2' 
 
 " Pretty js coding
 Plug 'yuezk/vim-js'

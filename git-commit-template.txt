@@ -1,4 +1,6 @@
+# ======================== How to use this guide ===============================
 # Title: Summary, imperative, start upper case, don't end with a period
+#
 # Use a gitmoji: https://gitmoji.dev/ at the beginning of the title, examples:
 # :sparkles: Feat: Title of new feature
 # :bug: Fix: Title of bug fix
@@ -14,6 +16,8 @@
 # :bookmark: Release: Title of release
 # :rocket: Deploy: Title of deployment
 # :construction_worker: CI: Title of CI build system
+#
+# ======================== Start of the message ================================
 ### WRITE YOUR TITLE HERE
 # No more than 50 chars. #### 50 chars is here:  #
 # Remember blank line between title and body.
@@ -26,6 +30,7 @@
 # Include at least one empty line before it. Format: 
 # Co-authored-by: name <user@users.noreply.github.com>
 #
+# ======================== End of the message ==================================
 # How to Write a Git Commit Message:
 # https://chris.beams.io/posts/git-commit/
 #
@@ -45,4 +50,3 @@
 #
 # Changes to be committed:
 #       new file:   installation.md
-#

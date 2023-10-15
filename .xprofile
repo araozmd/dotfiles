@@ -1,13 +1,13 @@
 # PATH=$PATH:/home/araozmd/.local/share/gem/ruby/3.0.0/bin
-xrandr --output DP-2 --primary --mode 2560x1440 --rate 143.97 --pos 1440x485 --rotate normal --output DP-2 --off --output HDMI-1 --off --output HDMI-0 --mode 2560x1440 --rate 144 --pos 0x0 --rotate left
+xrandr --output HDMI-0 --mode 2560x1440 --pos 2560x0 --rotate left --rate 144 --output DP-0 --off --output DP-1 --off --output DP-2 --primary --mode 2560x1440 --pos 0x490 --rate 143.97 --output DP-3 --off --output HDMI-1 --off
 # Composer
 picom &
 # Wallpaper
 nitrogen --restore &
-# Keyboard Layout
+# Keyboard layout
 setxkbmap latam &
 # Java Fonts
-xsettingsd &
+# xsettingsd &
 # USB support
 udiskie -t &
 # Network
@@ -15,7 +15,10 @@ nm-applet &
 # Lock Screen
 light-locker &
 # SSH Agent
-eval $(ssh-agent) &
+# eval $(ssh-agent) &
 # nvidia-settings -a InitialPixmapPlacement=2 &
 # xrdb ~/.Xresources
 # xinput --set-prop 28 'libinput Accel Speed' -0.6 & # Razer mouse speed
+
+# Notifications
+deadd-notification-center &

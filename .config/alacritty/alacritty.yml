@@ -28,7 +28,7 @@ colors:
 
 font:
   bold:
-    family:  UbuntuMono Nerd Font Mono
+    family: FiraCode Nerd Font Mono
     # family: MesloLGS NF
     # family: mononoki Nerd Font
     # family: agave Nerd Font
@@ -41,7 +41,7 @@ font:
     # family: SpaceMono NF
     style: Bold
   italic:
-    family: UbuntuMono Nerd Font Mono
+    family: FiraCode Nerd Font Mono
     # family: MesloLGS NF
     # family: mononoki Nerd Font
     # family: agave Nerd Font
@@ -54,7 +54,7 @@ font:
     # family: SpaceMono NF
     style: Italic
   normal:
-    family: UbuntuMono Nerd Font Mono
+    family: FiraCode Nerd Font Mono
     # family: MesloLGS NF
     # family: mononoki Nerd Font
     # family: agave Nerd Font
@@ -66,7 +66,7 @@ font:
     # family: Hack NF
     # family: SpaceMono NF
     style: Regular
-  size: 13
+  size: 10
 
 window:
   opacity: 0.90

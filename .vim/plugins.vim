@@ -5,6 +5,9 @@ Plug 'morhetz/gruvbox'
 "Plug 'shinchu/lightline-gruvbox.vim'
 Plug 'dracula/vim'
 
+" Color picker
+Plug 'norcalli/nvim-colorizer.lua'
+
 " Typing
 Plug 'jiangmiao/auto-pairs'
 Plug 'alvan/vim-closetag'

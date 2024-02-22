@@ -14,7 +14,10 @@ Plug 'tpope/vim-surround'
 Plug 'easymotion/vim-easymotion'
 
 " Folder explorer
-Plug 'scrooloose/nerdtree'
+Plug 'preservim/nerdtree' |
+            \ Plug 'Xuyuanp/nerdtree-git-plugin' |
+            \ Plug 'ryanoasis/vim-devicons'
+
 " Find files
 Plug 'wincent/command-t', {
    \   'do': 'cd lua/wincent/commandt/lib && make'

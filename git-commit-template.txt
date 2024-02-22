@@ -1,31 +1,27 @@
+# Examples of type of Commits
+# :sparkles: feat: introduce new features
+# :bug: fix: resolve a bug
+# :memo: docs: add or update documentation
+# :lipstick: style: change that doesn't affect the functionality (whitespaces, dots, format)
+# :recycle: refactor: refactor code
+# :zap: pef: improve performance
+# :test_tube: test: add test(s)
+#
+# ======================= Start of the message =========================
 # Title: Summary, imperative, start upper case, don't end with a period
-# Use a gitmoji: https://gitmoji.dev/ at the beginning of the title, examples:
-# :sparkles: Feat: Title of new feature
-# :bug: Fix: Title of bug fix
-# :recycle: Refactor: Title of refactoring
-# :memo: Docs: Title of documentation
-# :construction: WIP: Title of work in progress
-# :white_check_mark: Test: Title of test
-# :art: Style: Title of style
-# :arrow_up: Chore: Title of chore
-# :rewind: Revert: Title of revert
-# :zap: Perf: Title of performance improvement
-# :lock: Security: Title of security fix
-# :bookmark: Release: Title of release
-# :rocket: Deploy: Title of deployment
-# :construction_worker: CI: Title of CI build system
-### WRITE YOUR TITLE HERE
 # No more than 50 chars. #### 50 chars is here:  #
+
 # Remember blank line between title and body.
 
 # Body: Explain *what* and *why* (not *how*). Include task ID (Jira issue).
-### WRITE YOUR BODY HERE, REMEMBER NO MORE THAN 72 CHARS PER LINE
+
 # Wrap at 72 chars. ################################## which is here:  #
 
 # At the end: Include Co-authored-by for all contributors. 
 # Include at least one empty line before it. Format: 
 # Co-authored-by: name <user@users.noreply.github.com>
 #
+# ======================= End of the message ===========================
 # How to Write a Git Commit Message:
 # https://chris.beams.io/posts/git-commit/
 #
@@ -36,13 +32,3 @@
 # 5. Use the imperative mood in the subject line
 # 6. Wrap the body at 72 characters
 # 7. Use the body to explain what and why vs. how
-
-# Please enter the commit message for your changes. Lines starting
-# with '#' will be ignored, and an empty message aborts the commit.
-#
-# On branch master
-# Your branch is up to date with 'origin/main'.
-#
-# Changes to be committed:
-#       new file:   installation.md
-#

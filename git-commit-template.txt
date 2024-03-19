@@ -21,7 +21,6 @@
 ### WRITE YOUR TITLE HERE
 
 # No more than 50 chars. #### 50 chars is here:  #
-
 # Remember blank line between title and body.
 
 # Body: Explain *what* and *why* (not *how*). Include task ID (Jira issue).

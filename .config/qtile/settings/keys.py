@@ -56,7 +56,7 @@ keys = [Key(key[0], key[1], *key[2:]) for key in [
     ([mod], "Return", lazy.spawn("alacritty")),
 
     # Open application launcher
-    ([mod], "m", lazy.spawn("rofi -show drun")),
+    ([mod], "m", lazy.spawn("rofi -show drun -show-icons")),
     ([mod, "shift"], "m", lazy.spawn("rofi -show")),
 
     # Open file manager

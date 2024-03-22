@@ -1,5 +1,9 @@
 # PATH=$PATH:/home/araozmd/.local/share/gem/ruby/3.0.0/bin
-xrandr --output HDMI-0 --mode 2560x1440 --pos 2560x0 --rotate left --rate 144 --output DP-0 --off --output DP-1 --off --output DP-2 --primary --mode 2560x1440 --pos 0x490 --rate 143.97 --output DP-3 --off --output HDMI-1 --off
+if [ -f ~/.screenlayout/arandr.sh ]; then
+    . ~/.screenlayout/arandr.sh
+else
+  xrandr --auto
+fi
 # Composer
 picom &
 # Wallpaper

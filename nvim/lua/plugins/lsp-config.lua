@@ -1,59 +1,28 @@
 return {
   { "github/copilot.vim" },
+  { "mfussenegger/nvim-jdtls" },
   {
-    "williamboman/mason.nvim",
+    "VonHeikemen/lsp-zero.nvim",
     config = function()
-      require("mason").setup()
-    end,
-  },
-  {
-    "williamboman/mason-lspconfig.nvim",
-    lazy = false,
-    opts = {
-      auto_install = true,
-    },
-  },
-  {
-    "mfussenegger/nvim-jdtls",
-    config = function()
-      local config = {
-        cmd = { "/Users/araozmd/.local/share/nvim/mason/bin/jdtls" },
-        root_dir = vim.fs.dirname(vim.fs.find({ "gradlew", ".git", "mvnw" }, { upward = true })[1]),
-      }
-      require("jdtls").start_or_attach(config)
-    end,
-  },
-  {
-    "neovim/nvim-lspconfig",
-    keys = {
-      { "K",          vim.lsp.buf.hover },
-      { "gd",         vim.lsp.buf.definition },
-      { "gD",         vim.lsp.buf.declaration },
-      { "gi",         vim.lsp.buf.implementation },
-      { "<Leader>ca", vim.lsp.buf.code_action,   mode = { "n", "v" } },
-    },
-    config = function()
-      local capabilities = require("cmp_nvim_lsp").default_capabilities()
-      require("lsp-zero").setup({
-        on_attach = function(client, bufnr)
-          require("mason-lspconfig").on_attach(client, bufnr)
-        end,
-      })
+      local lsp_zero = require("lsp-zero")
 
-      local lspconfig = require("lspconfig")
+      lsp_zero.on_attach(function(client, bufnr)
+        lsp_zero.default_keymaps({ buffer = bufnr })
+      end)
 
-      lspconfig.lua_ls.setup({ capabilities = capabilities })
-      lspconfig.tsserver.setup({ capabilities = capabilities })
-      lspconfig.jdtls.setup({
-        cmd = { "jdtls" },
-        capabilities = capabilities,
+      require("mason").setup({})
+      require("mason-lspconfig").setup({
+        ensure_installed = {},
+        handlers = {
+          lsp_zero.default_setup,
+          jdtls = lsp_zero.noopt,
+        },
       })
-      lspconfig.angularls.setup({ capabilities = capabilities })
-      lspconfig.sg.setup({ capabilities = capabilities })
     end,
     dependencies = {
-      "VonHeikemen/lsp-zero.nvim",
-      "mfussenegger/nvim-jdtls",
+      "neovim/nvim-lspconfig",
+      "williamboman/mason.nvim",
+      "williamboman/mason-lspconfig.nvim",
     },
   },
 }

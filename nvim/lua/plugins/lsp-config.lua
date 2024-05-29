@@ -1,6 +1,12 @@
 return {
   { "github/copilot.vim" },
   { "mfussenegger/nvim-jdtls" },
+  { "neovim/nvim-lspconfig",
+    keys = {
+      { "<Leader>K", vim.lsp.buf.hover },
+      { "<Leader>ca", vim.lsp.buf.code_action },
+    },
+  },
   {
     "VonHeikemen/lsp-zero.nvim",
     config = function()

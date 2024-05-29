@@ -18,19 +18,15 @@ Plug 'easymotion/vim-easymotion'
 
 " Folder explorer
 Plug 'preservim/nerdtree' |
-            \ Plug 'Xuyuanp/nerdtree-git-plugin' |
-            \ Plug 'ryanoasis/vim-devicons'
+  \ Plug 'Xuyuanp/nerdtree-git-plugin' |
+  \ Plug 'ryanoasis/vim-devicons'
 
 " Find files
-Plug 'wincent/command-t', {
-   \   'do': 'cd lua/wincent/commandt/lib && make'
-   \ }
+Plug 'junegunn/fzf'
+Plug 'junegunn/fzf.vim'
 
 " Find inside files
 Plug 'mileszs/ack.vim'
-
-" Autocomplete
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " Pretty js coding
 Plug 'yuezk/vim-js'
@@ -58,5 +54,11 @@ Plug 'airblade/vim-rooter'
 
 " Markdown preview
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && npx --yes yarn install' }
+
+" Error checking
+" Plug 'folke/trouble.nvim' |
+"   \ Plug 'nvim-tree/nvim-web-devicons' |
+"   \ Plug 'neovim/nvim-lspconfig' |
+"   \ Plug 'williamboman/mason.nvim'
 
 call plug#end()

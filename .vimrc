@@ -21,3 +21,7 @@ set termguicolors
 so ~/.vim/plugins.vim
 so ~/.vim/maps.vim
 so ~/.vim/plugins-config.vim
+" 
+" lua << EOF
+"   require("mason").setup()
+" EOF

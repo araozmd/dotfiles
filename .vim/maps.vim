@@ -16,5 +16,5 @@ nnoremap <Leader>G :G<cr>
 nnoremap <Leader>gp :Git push<cr>
 nnoremap <Leader>gl :Git pull<cr>
 
-" Command-T
-nmap <silent> <Leader>u <Plug>(CommandTJump)
+" FZF
+nmap <leader>t :Files<CR>

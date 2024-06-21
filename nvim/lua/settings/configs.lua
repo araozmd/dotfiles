@@ -8,7 +8,7 @@ local g = vim.g
 set.number = true         -- show line numbers
 set.mouse = "a"           -- enable mouse support
 set.clipboard = "unnamed" -- copy/paste to system clipboard
-set.sintax = "on"         -- enable syntax highlighting
+set.syntax = "on"         -- enable syntax highlighting
 set.colorcolumn = "80"    -- set color column to 80
 set.showcmd = true        -- show command in status bar
 set.ruler = true          -- show line and column number in status bar
@@ -20,7 +20,7 @@ set.expandtab = true      -- use spaces instead of tabs
 set.sw = 2                -- set shift width to 2
 set.relativenumber = true -- show relative line numbers
 set.laststatus = 2        -- always show status bar
-set.noshowmode = true     -- hide mode in status bar
+set.showmode = false      -- hide mode in status bar
 set.termguicolors = true  -- enable true color suppor
 
 -- Configs for vim-gitgutter

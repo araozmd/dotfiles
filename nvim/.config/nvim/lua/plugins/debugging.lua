@@ -6,10 +6,10 @@ return {
 			"nvim-neotest/nvim-nio",
 		},
 		config = function()
-      local dap = require("dap")
-      local dapui =  require("dapui")
+			local dap = require("dap")
+			local dapui = require("dapui")
 
-      dapui.setup()
+			dapui.setup()
 
 			dap.listeners.before.attach.dapui_config = function()
 				dapui.open()
@@ -60,6 +60,21 @@ return {
 						name = "Attach",
 						processId = require("dap.utils").pick_process,
 						cwd = "${workspaceFolder}",
+					},
+					{
+						type = "pwa-node",
+						request = "launch",
+						name = "Debug Jest Tests",
+						-- trace = true, -- include debugger info
+						runtimeExecutable = "node",
+						runtimeArgs = {
+							"./node_modules/jest/bin/jest.js",
+							"--runInBand",
+						},
+						rootPath = "${workspaceFolder}",
+						cwd = "${workspaceFolder}",
+						console = "integratedTerminal",
+						internalConsoleOptions = "neverOpen",
 					},
 				}
 			end

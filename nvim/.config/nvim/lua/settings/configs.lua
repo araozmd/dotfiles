@@ -4,6 +4,7 @@
 
 local set = vim.o
 local g = vim.g
+local opt = vim.opt
 
 set.number = true         -- show line numbers
 set.mouse = "a"           -- enable mouse support
@@ -22,6 +23,9 @@ set.relativenumber = true -- show relative line numbers
 set.laststatus = 2        -- always show status bar
 set.showmode = false      -- hide mode in status bar
 set.termguicolors = true  -- enable true color suppor
+
+-- Options
+opt.splitright = true  -- split windows to the right
 
 -- Configs for vim-gitgutter
 g.gitgutter_sign_added = " "

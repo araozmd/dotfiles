@@ -15,6 +15,16 @@ return {
             'logs'
           }
         },
+        pickers = {
+          find_files = {
+            hidden = true
+          },
+          live_grep = {
+            additional_args = function()
+              return {"--hidden"}
+            end
+          }
+        }
       }
       local builtin = require('telescope.builtin')
       vim.keymap.set('n', '<Leader>ff', builtin.find_files)

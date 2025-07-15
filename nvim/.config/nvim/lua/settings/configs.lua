@@ -27,10 +27,15 @@ set.termguicolors = true  -- enable true color suppor
 -- Options
 opt.splitright = true  -- split windows to the right
 
--- Configs for vim-gitgutter
+-- Gitgutter signs with nerdfonts
 g.gitgutter_sign_added = " "
 g.gitgutter_sign_modified = " "
 g.gitgutter_sign_removed = " "
 g.gitgutter_sign_removed_first_line = " "
 g.gitgutter_sign_removed_above_and_below = '󰹺 '
 g.gitgutter_sign_modified_removed = ""
+
+-- Performance and behavior settings
+g.gitgutter_preview_win_floating = 1
+g.gitgutter_max_signs = 500
+g.gitgutter_sign_priority = 10

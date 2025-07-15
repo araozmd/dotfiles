@@ -25,43 +25,107 @@ Linux/Unix based system.
 
 ## Configuring Dotfiles
 
-The first thing you need to install is GNU Stow. You can install it using the following command:
+### Prerequisites
 
-### Arch Linux
+First, install GNU Stow, which is a symlink farm manager that creates symbolic links from your dotfiles to their target locations.
 
+**Arch Linux:**
 ```bash
 sudo pacman -S stow
 ```
 
-### MacOS
-
-````bash
+**MacOS:**
+```bash
 brew install stow
-````
-
-GNU Stow is a symlink farm manager which takes distinct packages of software 
-and/or data located in separate directories on the filesystem, and makes them 
-appear to be installed in the same place.
-
-### Cloning the Repository
-
-```bash
-git clone https://github.com/araozmd/dotfiles
-cd dotfiles
 ```
 
-### Stowing the Configurations
-
-Configure the dotfiles that you need by using the following command:
-
+**Ubuntu/Debian:**
 ```bash
-stow nvim
-stow qtile
-stow tmux
+sudo apt install stow
 ```
 
-If you're using Deadd Notification Center, you can also stow it:
+### Installation Guide
 
+**Important:** For stow to work correctly, you need to clone this repository to your home directory (`$HOME`) or a subdirectory of it.
+
+1. **Clone the repository to your home directory:**
+   ```bash
+   cd ~
+   git clone https://github.com/araozmd/dotfiles
+   cd dotfiles
+   ```
+
+2. **Install configurations using stow:**
+   
+   Each directory in this repository represents a different application configuration. Use stow to create symbolic links:
+
+   ```bash
+   # Essential configurations
+   stow nvim        # Neovim editor configuration
+   stow qtile       # Qtile window manager
+   stow alacritty   # Alacritty terminal emulator
+   stow tmux        # Terminal multiplexer
+   
+   # Optional configurations
+   stow kitty       # Alternative terminal emulator
+   stow yazi        # Terminal file manager
+   stow deadd       # Notification center
+   stow gtk2 gtk3   # GTK themes
+   stow xconfig     # X11 configuration
+   ```
+
+3. **Verify installation:**
+   ```bash
+   # Check if symlinks were created correctly
+   ls -la ~/.config/nvim
+   ls -la ~/.config/qtile
+   ```
+
+### Managing Configurations
+
+**Install a specific configuration:**
 ```bash
-stow deadd
+stow <package-name>
+```
+
+**Remove a configuration:**
+```bash
+stow -D <package-name>
+```
+
+**Reinstall a configuration:**
+```bash
+stow -R <package-name>
+```
+
+**Install all configurations at once:**
+```bash
+stow */
+```
+
+### Troubleshooting
+
+If you encounter conflicts, stow will warn you. Common solutions:
+
+1. **Remove existing config files:**
+   ```bash
+   rm ~/.config/nvim/init.lua  # Remove conflicting file
+   stow nvim                   # Then stow again
+   ```
+
+2. **Use the adopt flag to incorporate existing files:**
+   ```bash
+   stow --adopt nvim  # Moves existing files into the stow directory
+   ```
+
+### Directory Structure
+
+This repository uses the following structure that mirrors your home directory:
+```
+dotfiles/
+├── nvim/.config/nvim/           # → ~/.config/nvim/
+├── qtile/.config/qtile/         # → ~/.config/qtile/
+├── alacritty/.config/alacritty/ # → ~/.config/alacritty/
+├── tmux/.tmux.conf              # → ~/.tmux.conf
+└── ...
 ```

@@ -11,7 +11,7 @@ return {
 				null_ls.builtins.formatting.prettierd,
 				null_ls.builtins.formatting.google_java_format,
 				null_ls.builtins.diagnostics.djlint,
-				-- null_ls.builtins.diagnostics.semgrep, -- Disabled: conflicts with work AWS CodeArtifact
+				null_ls.builtins.diagnostics.semgrep,
 			},
 		})
 	end,

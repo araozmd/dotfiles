@@ -1,10 +1,10 @@
 return {
-  { "github/copilot.vim" },
+  -- Copilot is now configured in copilot.lua file
   { "mfussenegger/nvim-jdtls" },
   { "neovim/nvim-lspconfig",
     keys = {
-      { "<Leader>K", vim.lsp.buf.hover },
-      { "<Leader>ca", vim.lsp.buf.code_action },
+      { "<Leader>K", vim.lsp.buf.hover, desc = "Show hover documentation" },
+      { "<Leader>ca", vim.lsp.buf.code_action, desc = "Show code actions" },
     },
   },
   {

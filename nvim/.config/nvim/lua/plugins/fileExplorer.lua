@@ -23,7 +23,7 @@ return {
     "nvim-neo-tree/neo-tree.nvim",
     branch = "v3.x",
     keys = {
-      { "<Leader>nt", "<cmd>:Neotree toggle<cr>", desc = "Opend NerdTree" },
+      { "<Leader>nt", "<cmd>:Neotree toggle<cr>", desc = "Toggle Neo-tree file explorer" },
     },
     dependencies = {
       "nvim-lua/plenary.nvim",

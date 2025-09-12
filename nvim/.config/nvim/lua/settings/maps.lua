@@ -7,13 +7,13 @@ local map = vim.keymap
 g.mapleader=" " -- set leader key to space
 
 -- Save and quit
-map.set('n', '<Leader>w', ':w<CR>')
-map.set('n', '<Leader>q', ':q<CR>')
-map.set('n', '<Leader>wq', ':wq<CR>')
+map.set('n', '<Leader>w', ':w<CR>', { desc = 'Save file' })
+map.set('n', '<Leader>q', ':q<CR>', { desc = 'Quit' })
+map.set('n', '<Leader>wq', ':wq<CR>', { desc = 'Save and quit' })
 
 -- Split resizing
-map.set('n', '<Leader>>', '10<C-w>>')
-map.set('n', '<Leader><', '10<C-w><')
+map.set('n', '<Leader>>', '10<C-w>>', { desc = 'Increase window width' })
+map.set('n', '<Leader><', '10<C-w><', { desc = 'Decrease window width' })
 
 -- LSP diagnostics navigation
 map.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous diagnostic' })

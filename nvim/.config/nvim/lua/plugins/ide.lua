@@ -25,10 +25,30 @@ return {
   {
     'nvim-lualine/lualine.nvim',
     event = "VeryLazy",
-    dependencies = { 'nvim-tree/nvim-web-devicons' },
+    dependencies = { 
+      'nvim-tree/nvim-web-devicons',
+      'AndreM222/copilot-lualine',
+    },
     opts = {
       options = {
         theme = 'catppuccin',
+      },
+      sections = {
+        lualine_a = {'mode'},
+        lualine_b = {'branch', 'diff', 'diagnostics'},
+        lualine_c = {'filename'},
+        lualine_x = {
+          {
+            'copilot',
+            show_colors = true,
+            show_loading = true,
+          },
+          'encoding',
+          'fileformat',
+          'filetype'
+        },
+        lualine_y = {'progress'},
+        lualine_z = {'location'}
       },
     },
   },

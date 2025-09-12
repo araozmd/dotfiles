@@ -262,9 +262,21 @@ From left to right:
 - `:Trouble` - Show diagnostics in pretty list
 - `:TroubleToggle` - Toggle trouble window
 
-### Markdown Preview
-- `:MarkdownPreview` - Preview in browser
-- `:MarkdownPreviewStop` - Stop preview
+### Markdown & Documentation
+#### Current Tools
+- **render-markdown.nvim**: Enhanced in-editor markdown rendering (automatic)
+- **markdown-preview.nvim**: Browser preview functionality
+- **Swagger Preview**: API documentation preview
+
+#### Commands
+| Key/Command | Action |
+|-------------|---------|
+| `:MarkdownPreview` | Open markdown preview in browser |
+| `:MarkdownPreviewStop` | Stop the preview |
+| `:MarkdownPreviewToggle` | Toggle preview on/off |
+| `:SwaggerPreview` | Preview Swagger/API documentation |
+| `:SwaggerPreviewStop` | Stop Swagger preview |
+| `:SwaggerPreviewToggle` | Toggle Swagger preview |
 
 ---
 

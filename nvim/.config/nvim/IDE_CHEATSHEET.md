@@ -62,10 +62,31 @@ you can optionally re-enable neotest by uncommenting it in the configuration.
 | `gd` | Go to definition |
 | `gr` | Go to references |
 | `gi` | Go to implementation |
-| `[d` | Previous diagnostic |
-| `]d` | Next diagnostic |
-| `<Space>e` | Show diagnostic float |
-| `<Space>dl` | Open diagnostic list |
+
+### 🔍 Diagnostics & Code Issues
+| Key | Action | Description |
+|-----|--------|-------------|
+| `[d` | Previous diagnostic | Jump to previous error/warning |
+| `]d` | Next diagnostic | Jump to next error/warning |
+| `<Space>e` | Show diagnostic float | **Shows full error details with source** |
+| `<Space>dl` | Open diagnostic list | List all issues in quickfix window |
+
+### 🛡️ Security Scanning (Semgrep)
+- **Automatic**: Runs on Python, JS, TS, Go, Java, PHP, Ruby files
+- **Visual indicators**: `●` markers with source info inline
+- **Gutter signs**: `E`/`W`/`I` markers on left side
+- **Real-time**: Scans as you type (250ms delay)
+- **Severity**: Only shows ERROR-level security issues
+
+### 📍 Understanding Gutter Signs
+| Sign | Meaning | Color | Example Source |
+|------|---------|-------|----------------|
+| `E` | Error | 🔴 Red | semgrep, LSP, eslint |
+| `W` | Warning | 🟡 Yellow | semgrep, LSP, eslint |
+| `I` | Info | 🔵 Blue | LSP, prettier |
+| `H` | Hint | ⚪ Gray | LSP suggestions |
+
+**Pro Tip**: Use `<Space>e` on any line with a sign to see the full message!
 
 ### Formatting & Linting
 | Key | Action |
@@ -262,6 +283,13 @@ From left to right:
 3. Use F-keys to step through
 4. `<Space>dc` - Continue when done
 
+### Diagnostic Workflow (Handling Warnings/Errors)
+1. **See gutter signs** - `E`/`W`/`I` markers on left
+2. **Check details** - `<Space>e` to see full message with source
+3. **Navigate issues** - `]d` / `[d` to jump between problems
+4. **Fix systematically** - `<Space>dl` to see all issues in list
+5. **Verify fixes** - Issues disappear automatically when resolved
+
 ### AI-Assisted Development
 1. Write function signature
 2. Let Copilot complete it (`<M-l>`)
@@ -369,6 +397,13 @@ From left to right:
 - Check `:CmpStatus`
 - Verify LSP is running
 - Copilot suggestions now integrate with completion menu
+
+### If Diagnostics/Warnings Not Showing
+- Check `:Mason` - ensure linters are installed (semgrep, etc.)
+- Verify file type is supported (Python, JS, TS, Go, Java, PHP, Ruby)
+- Try `:lua vim.diagnostic.show()` to force refresh
+- Check `:messages` for any linter errors
+- Semgrep may take a few seconds on first scan
 
 ### If Startup is Slow
 - `:Lazy profile` - Check plugin loading times

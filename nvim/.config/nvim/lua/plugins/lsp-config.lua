@@ -18,10 +18,17 @@ return {
 
       require("mason").setup({})
       require("mason-lspconfig").setup({
-        ensure_installed = {},
+        ensure_installed = {
+          "lua_ls",
+          "pyright", 
+          "tsserver",
+          "jsonls",
+          "yamlls",
+          "bashls",
+        },
         handlers = {
           lsp_zero.default_setup,
-          jdtls = lsp_zero.noopt,
+          jdtls = lsp_zero.noop,
         },
       })
     end,

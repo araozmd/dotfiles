@@ -2,6 +2,7 @@
 return {
   {
     'NvChad/nvim-colorizer.lua',
+    event = "VeryLazy",
     config = function()
       require('colorizer').setup()
     end
@@ -12,9 +13,14 @@ return {
     build = ":TSUpdate",
     config = function()
       require('nvim-treesitter.configs').setup {
-        auto_install = 'true',
+        ensure_installed = { 
+          "lua", "python", "javascript", "typescript", "markdown", "json", "yaml", "bash", "html", "css"
+        },
+        auto_install = false, -- Don't auto-install everything
+        sync_install = false,
         highlight = {
-          enable = true
+          enable = true,
+          additional_vim_regex_highlighting = false,
         },
         indent = {
           enable = true
@@ -26,8 +32,8 @@ return {
     'nvim-lualine/lualine.nvim',
     event = "VeryLazy",
     dependencies = { 
-      'nvim-tree/nvim-web-devicons',
-      'AndreM222/copilot-lualine',
+      { 'nvim-tree/nvim-web-devicons', lazy = true },
+      { 'AndreM222/copilot-lualine', lazy = true },
     },
     opts = {
       options = {
@@ -55,7 +61,7 @@ return {
   {
     "folke/trouble.nvim",
     cmd = { "Trouble", "TroubleToggle" },
-    dependencies = { "nvim-tree/nvim-web-devicons" },
+    dependencies = { { "nvim-tree/nvim-web-devicons", lazy = true } },
   },
   {
     "lukas-reineke/indent-blankline.nvim",

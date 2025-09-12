@@ -22,12 +22,13 @@ return {
   {
     "nvim-neo-tree/neo-tree.nvim",
     branch = "v3.x",
+    cmd = "Neotree",
     keys = {
       { "<Leader>nt", "<cmd>:Neotree toggle<cr>", desc = "Toggle Neo-tree file explorer" },
     },
     dependencies = {
       "nvim-lua/plenary.nvim",
-      "nvim-tree/nvim-web-devicons",
+      { "nvim-tree/nvim-web-devicons", lazy = true },
       "MunifTanjim/nui.nvim",
     },
     config = function()

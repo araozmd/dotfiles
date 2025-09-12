@@ -18,6 +18,27 @@ set.encoding = "utf-8"    -- set encoding to utf-8
 set.showmatch = true      -- highlight matching parenthesis
 set.ts = 2                -- set tab size to 2
 set.expandtab = true      -- use spaces instead of tabs
+
+-- Enhanced diagnostic configuration
+vim.diagnostic.config({
+  virtual_text = {
+    enabled = true,
+    prefix = "●", -- Could be '●', '▎', 'x', '■', etc.
+    source = "always", -- Show source (e.g., "semgrep", "eslint")
+  },
+  signs = true,
+  underline = true,
+  update_in_insert = false, -- Don't update diagnostics while typing
+  severity_sort = true, -- Show errors before warnings
+  float = {
+    enabled = true,
+    border = "rounded",
+    source = "always", -- Show diagnostic source
+    header = "",
+    prefix = "",
+    focusable = false,
+  },
+})
 set.sw = 2                -- set shift width to 2
 set.relativenumber = true -- show relative line numbers
 set.laststatus = 2        -- always show status bar

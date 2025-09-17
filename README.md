@@ -18,7 +18,7 @@ Linux/Unix based system.
 2. [Qtile](http://www.qtile.org/) for the window manager.
 3. [kitty](https://sw.kovidgoyal.net/kitty/) and [Alacritty](https://alacritty.org/) for the terminal emulator.
 4. [Zsh](https://www.zsh.org/) with [Oh My Zsh](https://ohmyz.sh/) for the shell.
-5. [Neovim](https://neovim.io/) for the text editor.
+5. [Neovim](https://neovim.io/) for the text editor with AI integration.
 6. [Yazi](https://github.com/sxyazi/yazi) for a powerful terminal file manager.
 7. [gtk](https://www.gtk.org/) for the GUI toolkit.
 8. [Deadd Notification Center](https://github.com/phuhl/linux_notification_center) for the notification center.
@@ -80,6 +80,50 @@ sudo apt install stow
    ls -la ~/.config/nvim
    ls -la ~/.config/qtile
    ```
+
+## Neovim Configuration
+
+### AI Integration Features
+This Neovim configuration includes multiple AI assistants for enhanced development experience:
+
+- **GitHub Copilot**: Inline code completions while typing
+- **Avante.nvim**: Cursor-like AI chat interface for complex code editing
+- **Claude Code**: Direct integration with Claude AI
+- **Copilot Chat**: Interactive conversations with GitHub Copilot
+
+### Key Bindings Quick Reference
+
+**Leader key**: `<Space>`
+
+#### Essential Commands
+- `<Leader>w` - Save file
+- `<Leader>q` - Quit
+- `<Leader>nt` - Toggle file explorer
+- `<Leader>ff` - Find files
+
+#### AI Commands
+- `<Leader>aa` - Ask Avante AI
+- `<Leader>ac` - Open AI chat
+- `<Leader>ae` - AI edit selection (visual mode)
+- `<Leader>ct` - Toggle Claude Code
+- `<Leader>cpc` - Toggle Copilot Chat
+
+For complete keybinding reference, see: [`nvim/.config/nvim/KEYBINDINGS.md`](nvim/.config/nvim/KEYBINDINGS.md)
+
+### AI Setup
+
+#### For Work Environments (GitHub Copilot only)
+```bash
+# Authenticate Copilot in Neovim
+:Copilot auth
+```
+
+#### For Personal Use (Additional AI providers)
+```bash
+# Set API keys for other providers
+export ANTHROPIC_API_KEY="your-claude-key"
+export OPENAI_API_KEY="your-openai-key"
+```
 
 ### Managing Configurations
 

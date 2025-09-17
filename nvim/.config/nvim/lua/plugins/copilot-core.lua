@@ -64,16 +64,17 @@ return {
       { "nvim-lua/plenary.nvim" },
     },
     keys = {
-      -- Essential chat commands only
-      { "<leader>cc", "<cmd>CopilotChatToggle<cr>", desc = "Toggle Copilot Chat" },
-      { "<leader>ce", ":CopilotChatExplain<cr>", mode = { "n", "v" }, desc = "Explain code" },
-      { "<leader>cf", ":CopilotChatFix<cr>", mode = { "n", "v" }, desc = "Fix the problem" },
-      { "<leader>co", ":CopilotChatOptimize<cr>", mode = { "n", "v" }, desc = "Optimize code" },
-      { "<leader>cr", ":CopilotChatReview<cr>", mode = { "n", "v" }, desc = "Review code" },
-      { "<leader>cd", ":CopilotChatDocs<cr>", mode = { "n", "v" }, desc = "Add documentation" },
-      { "<leader>cm", ":CopilotChatCommitStaged<cr>", desc = "Generate commit message" },
+      -- Essential chat commands only (nested under <leader>cp for copilot)
+      { "<leader>cp", nil, desc = "Copilot Chat" },
+      { "<leader>cpc", "<cmd>CopilotChatToggle<cr>", desc = "Toggle Copilot Chat" },
+      { "<leader>cpe", ":CopilotChatExplain<cr>", mode = { "n", "v" }, desc = "Explain code" },
+      { "<leader>cpf", ":CopilotChatFix<cr>", mode = { "n", "v" }, desc = "Fix the problem" },
+      { "<leader>cpo", ":CopilotChatOptimize<cr>", mode = { "n", "v" }, desc = "Optimize code" },
+      { "<leader>cpr", ":CopilotChatReview<cr>", mode = { "n", "v" }, desc = "Review code" },
+      { "<leader>cpd", ":CopilotChatDocs<cr>", mode = { "n", "v" }, desc = "Add documentation" },
+      { "<leader>cpm", ":CopilotChatCommitStaged<cr>", desc = "Generate commit message" },
       {
-        "<leader>cq",
+        "<leader>cpq",
         function()
           local input = vim.fn.input("Quick Chat: ")
           if input ~= "" then

@@ -39,6 +39,7 @@ return {
         handlers = {
           lsp_zero.default_setup,
           jdtls = lsp_zero.noop,
+          stylua = lsp_zero.noop, -- Disable stylua as LSP (it's a formatter, not LSP)
         },
       })
     end,

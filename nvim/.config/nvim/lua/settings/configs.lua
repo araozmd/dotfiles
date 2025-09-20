@@ -60,3 +60,24 @@ g.gitgutter_sign_modified_removed = ""
 g.gitgutter_preview_win_floating = 1
 g.gitgutter_max_signs = 500
 g.gitgutter_sign_priority = 10
+
+-- Auto-reload files when changed externally
+set.autoread = true
+
+-- Create autocmds for better file change detection and git status updates
+vim.api.nvim_create_autocmd({ "FocusGained", "BufEnter", "CursorHold", "CursorHoldI" }, {
+  pattern = "*",
+  callback = function()
+    if vim.fn.mode() ~= 'c' then
+      vim.cmd('checktime')
+    end
+  end,
+})
+
+-- Auto-update git gutter when files change
+vim.api.nvim_create_autocmd({ "BufWritePost", "FocusGained", "BufEnter" }, {
+  pattern = "*",
+  callback = function()
+    vim.cmd('GitGutter')
+  end,
+})

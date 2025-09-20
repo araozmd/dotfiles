@@ -74,12 +74,3 @@ vim.api.nvim_create_autocmd({ "FocusGained", "BufEnter", "CursorHold", "CursorHo
   end,
 })
 
--- Auto-update git gutter when files change (only if GitGutter is available)
-vim.api.nvim_create_autocmd({ "BufWritePost", "FocusGained", "BufEnter" }, {
-  pattern = "*",
-  callback = function()
-    if vim.fn.exists(':GitGutter') == 2 then
-      vim.cmd('GitGutter')
-    end
-  end,
-})

@@ -57,7 +57,7 @@ return {
   -- CopilotChat for interactive AI conversations
   {
     "CopilotC-Nvim/CopilotChat.nvim",
-    branch = "canary",
+    build = "make tiktoken",
     cmd = { "CopilotChat", "CopilotChatToggle", "CopilotChatExplain", "CopilotChatReview", "CopilotChatFix", "CopilotChatOptimize" },
     dependencies = {
       { "zbirenbaum/copilot.lua" },
@@ -87,17 +87,16 @@ return {
     config = function()
       require("CopilotChat").setup({
         debug = false,
-        model = 'gpt-4',
+        model = 'gpt-5',
         temperature = 0.1,
-        question_header = '## User ',
-        answer_header = '## Copilot ',
-        error_header = '## Error ',
+        question_header = ' User ',
+        answer_header = ' Copilot ',
+        error_header = ' Error ',
         show_help = true,
         auto_follow_cursor = true,
         auto_insert_mode = false,
         clear_chat_on_new_prompt = false,
         context = 'buffers',
-        
         prompts = {
           Explain = {
             prompt = '/COPILOT_EXPLAIN Write an explanation for the active selection as paragraphs of text.',

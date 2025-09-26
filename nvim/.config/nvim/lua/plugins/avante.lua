@@ -8,38 +8,23 @@ return {
     provider = "copilot", -- Default to Copilot for work environments
 
     providers = {
-      -- Copilot configuration (default for work laptop)
+      -- gpt-5 configuration (for work)
       copilot = {
         endpoint = "https://api.githubcopilot.com",
-        model = "gpt-4o-2024-08-06",
-        timeout = 30000,
-        extra_request_body = {
-          temperature = 0,
-          max_tokens = 4096,
-        },
+        model = "gpt-5"
       },
 
-      -- Claude configuration (for personal use)
+      -- Claude configuration through copilot (for work)
       claude = {
-        endpoint = "https://api.anthropic.com",
-        model = "claude-3-5-sonnet-20241022",
-        timeout = 30000,
-        extra_request_body = {
-          temperature = 0,
-          max_tokens = 4096,
-        },
+        endpoint = "https://api.githubcopilot.com",
+        model = "claude-sonnet-4"
       },
 
-      -- OpenAI configuration (alternative option)
-      openai = {
-        endpoint = "https://api.openai.com/v1",
-        model = "gpt-4o",
-        timeout = 30000,
-        extra_request_body = {
-          temperature = 0,
-          max_tokens = 4096,
-        },
-      },
+      -- Claude configuration through copilot (for work)
+      gemini = {
+        endpoint = "https://api.githubcopilot.com",
+        model = "gemini-2.5-pro"
+      }
     },
 
     -- Behavior settings

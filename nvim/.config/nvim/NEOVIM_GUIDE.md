@@ -146,10 +146,10 @@ When viewing AI-suggested changes:
 #### Inline Suggestions (Insert Mode)
 | Key | Action | Description |
 |-----|--------|-------------|
-| `<M-l>` | Accept suggestion | Accept Copilot inline suggestion |
-| `<M-]>` | Next suggestion | Show next Copilot suggestion |
-| `<M-[>` | Previous suggestion | Show previous Copilot suggestion |
-| `<C-]>` | Dismiss | Dismiss current Copilot suggestion |
+| `<M-a>` | Accept suggestion | Accept Copilot inline suggestion |
+| `<M-n>` | Next suggestion | Show next Copilot suggestion |
+| `<M-p>` | Previous suggestion | Show previous Copilot suggestion |
+| `<M-d>` | Dismiss | Dismiss current Copilot suggestion |
 | `<M-CR>` | Open panel | Open Copilot suggestions panel |
 
 ### CopilotChat - `<Space>cp*`

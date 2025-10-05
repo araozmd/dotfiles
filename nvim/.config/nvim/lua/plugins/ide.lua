@@ -98,8 +98,37 @@ return {
     config = function()
       vim.o.timeout = true
       vim.o.timeoutlen = 300
-      require("which-key").setup({
+
+      local wk = require("which-key")
+      wk.setup({
         preset = "modern",
+      })
+
+      -- Add visual mode hints for various plugins
+      wk.add({
+        -- Visual mode leader hints
+        { "<leader>", group = "Leader", mode = "v" },
+
+        -- Avante AI hints (visual mode)
+        { "<leader>a", group = "Avante AI", mode = "v", icon = "󰚩" },
+        { "<leader>ae", desc = "Edit with AI", mode = "v", icon = "" },
+        { "<leader>aa", desc = "Ask AI about selection", mode = "v", icon = "" },
+
+        -- Copilot Chat hints (visual mode)
+        { "<leader>cp", group = "Copilot", mode = "v", icon = "" },
+        { "<leader>cpe", desc = "Explain code", mode = "v", icon = "󰆈" },
+        { "<leader>cpf", desc = "Fix problem", mode = "v", icon = "" },
+        { "<leader>cpo", desc = "Optimize code", mode = "v", icon = "󰓕" },
+        { "<leader>cpr", desc = "Review code", mode = "v", icon = "" },
+        { "<leader>cpd", desc = "Add docs", mode = "v", icon = "󰈙" },
+
+        -- LSP hints (visual mode)
+        { "<leader>c", group = "Code", mode = "v", icon = "" },
+        { "<leader>ca", desc = "Code actions", mode = "v", icon = "󰌵" },
+
+        -- Git hints (visual mode)
+        { "<leader>g", group = "Git", mode = "v", icon = "" },
+        { "<leader>gs", desc = "Stage selection", mode = "v", icon = "" },
       })
     end,
   }

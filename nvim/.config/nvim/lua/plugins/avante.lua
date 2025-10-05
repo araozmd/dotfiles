@@ -4,6 +4,7 @@ return {
   event = "VeryLazy",
   build = "make",
   opts = {
+    instructions_file = "avante.md",
     -- Provider configuration - using Copilot as default for work laptop
     provider = "copilot", -- Default to Copilot for work environments
 
@@ -90,11 +91,14 @@ return {
     "nvim-lua/plenary.nvim",
     "MunifTanjim/nui.nvim",
     -- Optional dependencies
+    "echasnovski/mini.pick", -- for file_selector provider mini.pick
+    "nvim-telescope/telescope.nvim", -- Already installed
+    "hrsh7th/nvim-cmp", -- Already installed
+    "ibhagwan/fzf-lua", -- for file_selector provider fzf
+    "stevearc/dressing.nvim",
+    "folke/snacks.nvim", -- for input provider snacks
     "nvim-tree/nvim-web-devicons",
     "zbirenbaum/copilot.lua", -- Your existing Copilot plugin
-    "hrsh7th/nvim-cmp", -- Already installed
-    "nvim-telescope/telescope.nvim", -- Already installed
-    "stevearc/dressing.nvim",
     {
       "HakonHarnes/img-clip.nvim",
       event = "VeryLazy",

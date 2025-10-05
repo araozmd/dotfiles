@@ -29,12 +29,12 @@ return {
           auto_trigger = true,
           debounce = 75,
           keymap = {
-            accept = "<M-l>",
+            accept = "<M-a>",      -- Changed from <M-l> to avoid conflict with Avante
             accept_word = false,
             accept_line = false,
-            next = "<M-]>",
-            prev = "<M-[>",
-            dismiss = "<C-]>",
+            next = "<M-n>",        -- Changed from <M-]> to avoid conflict with Avante
+            prev = "<M-p>",        -- Changed from <M-[> to avoid conflict with Avante
+            dismiss = "<M-d>",     -- Changed from <C-]> to avoid conflict with Avante
           },
         },
         filetypes = {

@@ -1,19 +1,23 @@
 # Repository Guidelines
 
 ## Project Structure & Module Organization
-Root directories map one-to-one with the managed applications so GNU Stow can symlink them cleanly. Place user-facing files inside `<tool>/.config/<tool>`; for example, Neovim lives in `nvim/.config/nvim`, Qtile in `qtile/.config/qtile`, and Alacritty in `alacritty/.config/alacritty/alacritty.yml`. Keep helper documentation beside its module (e.g., `tmux/TMUX_CHEATSHEET.md`) to prevent orphaned references when stowing.
+This repo is a stow-friendly dotfiles bundle: each top-level directory mirrors a tool and is safe to symlink with `stow`. Place user-facing configuration under `<tool>/.config/<tool>`, e.g. `nvim/.config/nvim`, `qtile/.config/qtile`, `alacritty/.config/alacritty/alacritty.yml`. Keep auxiliary docs beside their module (like `tmux/TMUX_CHEATSHEET.md`) and avoid mixing machine-local secrets into stowed trees.
 
 ## Build, Test, and Development Commands
-Use `stow <module>` from the repository root to link a configuration into `$HOME`. Run `stow -D <module>` before restructuring files and `stow -R <module>` to refresh an existing link. After changing Lua plugins, execute `nvim --headless "+Lazy! sync" +qa`. Validate Qtile with `qtile check`, and reload tmux bindings in place with `tmux source-file ~/.tmux.conf`.
+- `stow <module>` — link a module into `$HOME`; use `stow -D <module>` before restructuring and `stow -R <module>` after edits.
+- `nvim --headless "+Lazy! sync" +qa` — sync Lua plugins whenever `nvim/lua` changes.
+- `nvim --headless "+checkhealth" +qa` — surface plugin or health issues after edits.
+- `qtile check` and `qtile start -l WARNING` — validate Qtile configs before deploying.
+- `tmux source-file ~/.tmux.conf` — reload bindings and themes in-place.
 
 ## Coding Style & Naming Conventions
-Lua files use two-space indentation and align table assignments; Python follows four spaces. Keep directory names lowercase and choose descriptive module paths such as `settings/java.lua` or `widgets/battery.py`. Prefer `snake_case` for functions, mappings, and options, reserving `UPPER_SNAKE_CASE` for constants. Precede any non-obvious behavior with a brief inline comment.
+Lua files use two-space indents and aligned table assignments; Python follows four spaces. Favor descriptive, lowercase directory names and paths such as `settings/java.lua` or `widgets/battery.py`. Stick to `snake_case` for functions, mappings, and options, reserving `UPPER_SNAKE_CASE` for constants. Add succinct inline comments only when behavior is non-obvious.
 
 ## Testing Guidelines
-After editing Lua modules, run `nvim --headless "+checkhealth" +qa` to surface plugin or health issues. For Qtile updates, pair `qtile check` with a nested launch (`qtile start -l WARNING`) when possible. Reapply terminal themes (`kitty +kitten themes`, relaunch Alacritty) and run `tmux source-file ~/.tmux.conf` to confirm colors, fonts, and keymaps resolve correctly.
+Focus testing on runtime checks: run the headless Neovim health checks, Qtile validation, and reapply terminal themes (`kitty +kitten themes`, restart Alacritty) after theme edits. Confirm tmux keymaps with `tmux source-file ~/.tmux.conf`. There is no automated test harness, so document any manual verification in commit bodies.
 
 ## Commit & Pull Request Guidelines
-Commit subjects begin with an emoji followed by a Title Case summary (for instance, `✨ Add New Statusline`). In the body, list affected modules and the validation commands you ran. Pull requests should enumerate touched modules, describe manual or automated verification, and attach screenshots for UI changes. Scope PRs narrowly; split unrelated tweaks into separate branches.
+Commits start with an emoji followed by a Title Case summary (e.g. `✨ Add New Statusline`). In the body, list touched modules and the validation commands executed. Pull requests should mirror that structure, link related issues, and include screenshots for UI-facing tweaks. Keep changes scoped to a single tool to maintain clean stow operations.
 
 ## Security & Configuration Tips
-Never commit API keys or machine-specific secrets. Load sensitive values through environment variables or ignored files such as `nvim/.config/nvim/.claude/settings.local.json`. Keep machine-local secrets out of stowed directories so they remain unstowed by default.
+Never commit API keys or machine-local overrides. Load secrets through environment variables or ignored files like `nvim/.config/nvim/.claude/settings.local.json`. Keep per-machine adjustments outside the stowed directories so GNU Stow does not propagate private data.

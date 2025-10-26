@@ -40,7 +40,7 @@ return {
 
     -- Window positioning
     windows = {
-      position = "right",
+      position = "left",
       width = 30,
       wrap = true,
       sidebar_header = {
@@ -124,23 +124,23 @@ return {
 
   keys = {
     -- Using <leader>a for Avante (now available after moving Claude Code to <leader>c)
-    { "<leader>a", nil, desc = "Avante AI" },
-    { "<leader>aa", "<cmd>AvanteAsk<cr>", desc = "Ask Avante" },
-    { "<leader>ac", "<cmd>AvanteChat<cr>", desc = "Chat" },
-    { "<leader>ae", "<cmd>AvanteEdit<cr>", mode = "v", desc = "Edit selection" },
-    { "<leader>ar", "<cmd>AvanteRefresh<cr>", desc = "Refresh" },
-    { "<leader>at", "<cmd>AvanteToggle<cr>", desc = "Toggle sidebar" },
-    { "<leader>af", "<cmd>AvanteFocus<cr>", desc = "Focus sidebar" },
-    { "<leader>aX", "<cmd>AvanteClear<cr>", desc = "Clear chat" },
-    { "<leader>an", "<cmd>AvanteChatNew<cr>", desc = "New chat" },
-    { "<leader>ah", "<cmd>AvanteHistory<cr>", desc = "Chat history" },
-    { "<leader>as", "<cmd>AvanteStop<cr>", desc = "Stop AI request" },
-    { "<leader>am", "<cmd>AvanteModels<cr>", desc = "Show models" },
-    { "<leader>ab", "<cmd>AvanteBuild<cr>", desc = "Build dependencies" },
-    { "<leader>ap", "<cmd>AvanteSwitchProvider<cr>", desc = "Switch provider" },
-    { "<leader>aR", "<cmd>AvanteShowRepoMap<cr>", desc = "Show repo map" },
+    { "<leader>a", nil, desc = "󱚝 Avante AI" },
+    { "<leader>aa", "<cmd>AvanteAsk<cr>", desc = "󱚝 Ask Avante" },
+    { "<leader>ac", "<cmd>AvanteChat<cr>", desc = "󱚝 Chat" },
+    { "<leader>ae", "<cmd>AvanteEdit<cr>", mode = "v", desc = "󱚝 Edit selection" },
+    { "<leader>ar", "<cmd>AvanteRefresh<cr>", desc = "󱚝 Refresh" },
+    { "<leader>at", "<cmd>AvanteToggle<cr>", desc = "󱚝 Toggle sidebar" },
+    { "<leader>af", "<cmd>AvanteFocus<cr>", desc = "󱚝 Focus sidebar" },
+    { "<leader>aX", "<cmd>AvanteClear<cr>", desc = "󱚝 Clear chat" },
+    { "<leader>an", "<cmd>AvanteChatNew<cr>", desc = "󱚝 New chat" },
+    { "<leader>ah", "<cmd>AvanteHistory<cr>", desc = "󱚝 Chat history" },
+    { "<leader>as", "<cmd>AvanteStop<cr>", desc = "󱚝 Stop AI request" },
+    { "<leader>am", "<cmd>AvanteModels<cr>", desc = "󱚝 Show models" },
+    { "<leader>ab", "<cmd>AvanteBuild<cr>", desc = "󱚝 Build dependencies" },
+    { "<leader>ap", "<cmd>AvanteSwitchProvider<cr>", desc = "󱚝 Switch provider" },
+    { "<leader>aR", "<cmd>AvanteShowRepoMap<cr>", desc = "󱚝 Show repo map" },
     -- Visual mode mappings
-    { "<leader>ae", ":AvanteEdit<cr>", mode = "v", desc = "Edit selection" },
-    { "<leader>aa", ":AvanteAsk<cr>", mode = "v", desc = "Ask about selection" },
+    { "<leader>ae", ":AvanteEdit<cr>", mode = "v", desc = "󱚝 Edit selection" },
+    { "<leader>aa", ":AvanteAsk<cr>", mode = "v", desc = "󱚝 Ask about selection" },
   },
 }

@@ -65,14 +65,14 @@ return {
     },
     keys = {
       -- Essential chat commands only (nested under <leader>cp for copilot)
-      { "<leader>cp", nil, desc = "Copilot Chat" },
-      { "<leader>cpc", "<cmd>CopilotChatToggle<cr>", desc = "Toggle Copilot Chat" },
-      { "<leader>cpe", ":CopilotChatExplain<cr>", mode = { "n", "v" }, desc = "Explain code" },
-      { "<leader>cpf", ":CopilotChatFix<cr>", mode = { "n", "v" }, desc = "Fix the problem" },
-      { "<leader>cpo", ":CopilotChatOptimize<cr>", mode = { "n", "v" }, desc = "Optimize code" },
-      { "<leader>cpr", ":CopilotChatReview<cr>", mode = { "n", "v" }, desc = "Review code" },
-      { "<leader>cpd", ":CopilotChatDocs<cr>", mode = { "n", "v" }, desc = "Add documentation" },
-      { "<leader>cpm", ":CopilotChatCommitStaged<cr>", desc = "Generate commit message" },
+      { "<leader>cp", nil, desc = " Copilot Chat" },
+      { "<leader>cpc", "<cmd>CopilotChatToggle<cr>", desc = " Toggle Copilot Chat" },
+      { "<leader>cpe", ":CopilotChatExplain<cr>", mode = { "n", "v" }, desc = " Explain code" },
+      { "<leader>cpf", ":CopilotChatFix<cr>", mode = { "n", "v" }, desc = " Fix the problem" },
+      { "<leader>cpo", ":CopilotChatOptimize<cr>", mode = { "n", "v" }, desc = " Optimize code" },
+      { "<leader>cpr", ":CopilotChatReview<cr>", mode = { "n", "v" }, desc = " Review code" },
+      { "<leader>cpd", ":CopilotChatDocs<cr>", mode = { "n", "v" }, desc = " Add documentation" },
+      { "<leader>cpm", ":CopilotChatCommitStaged<cr>", desc = " Generate commit message" },
       {
         "<leader>cpq",
         function()
@@ -81,7 +81,7 @@ return {
             require("CopilotChat").ask(input, { selection = require("CopilotChat.select").buffer })
           end
         end,
-        desc = "Quick chat"
+        desc = " Quick chat"
       },
     },
     config = function()
